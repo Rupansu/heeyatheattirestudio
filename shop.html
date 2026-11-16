@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Collection — Heeya The Attire Studio</title>
+  <meta name="description" content="Shop hand-woven Mekhela Sadors in Muga and Mulberry silk and handloom stoles from Heeya — The Attire Studio, Guwahati, Assam.">
+  <meta name="theme-color" content="#222c22">
+  <link rel="icon" href="img/brand/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@400;500&family=Noto+Serif+Bengali:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="shop">
+
+<main>
+  <section class="page-head">
+    <div class="wrap">
+      <div class="crumbs"><a href="index.html">Home</a> / Shop</div>
+      <h1 id="shop-title">The Collection</h1>
+      <p id="shop-lede"></p>
+    </div>
+  </section>
+  <div class="gamosa" aria-hidden="true"></div>
+
+  <section class="wrap" style="padding-bottom:clamp(72px,9vw,120px)">
+    <div class="toolbar">
+      <div class="chips" role="group" aria-label="Filter"></div>
+      <div class="right">
+        <span id="count"></span>
+        <label class="select"><span class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Sort by</span>
+          <select id="sort">
+            <option value="featured">Featured</option>
+            <option value="low">Price: low to high</option>
+            <option value="high">Price: high to low</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <div class="grid" id="shop-grid"></div>
+  </section>
+</main>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
