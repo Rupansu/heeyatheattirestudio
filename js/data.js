@@ -1,6 +1,5 @@
-/* Built from the founder's saved edits on 2026-11-17. */
+/* Generated from the founder's console. */
 const STUDIO = {
- "name": "Heeya — The Attire Studio",
  "whatsapp": "919864030365",
  "whatsappDisplay": "+91 98640 30365",
  "instagram": "https://www.instagram.com/heeyatheattirestudio/",
@@ -31,7 +30,7 @@ const PRODUCTS = [
   "name": "Muga Mekhela Sador with Indigo Kolka",
   "cat": "mekhela",
   "silk": "Muga",
-  "price": 55500,
+  "price": 45500,
   "colour": "Natural muga gold, indigo",
   "images": [
    "ms-muga-indigo",

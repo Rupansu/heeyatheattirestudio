@@ -1,6 +1,5 @@
 {
  "studio": {
-  "name": "Heeya — The Attire Studio",
   "whatsapp": "919864030365",
   "whatsappDisplay": "+91 98640 30365",
   "instagram": "https://www.instagram.com/heeyatheattirestudio/",
@@ -31,7 +30,7 @@
    "name": "Muga Mekhela Sador with Indigo Kolka",
    "cat": "mekhela",
    "silk": "Muga",
-   "price": 55500,
+   "price": 45500,
    "colour": "Natural muga gold, indigo",
    "images": [
     "ms-muga-indigo",
@@ -199,28 +198,6 @@
    "desc": "Black with saffron and ivory butas and a band of woven lotuses set between silver-grey geometric borders."
   }
  ],
- "runway": [
-  {
-   "src": "runway-1",
-   "caption": "The Heeya walk"
-  },
-  {
-   "src": "runway-2",
-   "caption": "Silk on the ramp"
-  },
-  {
-   "src": "runway-4",
-   "caption": "On stage"
-  },
-  {
-   "src": "runway-3",
-   "caption": "In the front row"
-  },
-  {
-   "src": "runway-5",
-   "caption": "Curtain call"
-  }
- ],
  "text": {
   "announce": [
    "Handwoven in Assam",
@@ -246,5 +223,27 @@
   "heritageTitle": "Our hope is to reinterpret Assam’s exquisite *Muga, Eri and Mulberry* silks, blending traditional craftsmanship with contemporary style.",
   "heritageBody": "Through Heeya Heritage World, our NGO, we support traditional craftsmanship and the women who carry it, so the looms of Assam keep weaving for generations to come.",
   "footerAbout": "Mekhela sadors and handloom stoles in Muga, Eri and Mulberry silk, woven in Assam with the artisans who keep its looms alive."
- }
+ },
+ "runway": [
+  {
+   "src": "runway-1",
+   "caption": "The Heeya walk"
+  },
+  {
+   "src": "runway-2",
+   "caption": "Silk on the ramp"
+  },
+  {
+   "src": "runway-4",
+   "caption": "On stage"
+  },
+  {
+   "src": "runway-3",
+   "caption": "In the front row"
+  },
+  {
+   "src": "runway-5",
+   "caption": "Curtain call"
+  }
+ ]
 }
