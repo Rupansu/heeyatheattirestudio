@@ -140,7 +140,7 @@ function footer() {
       </div>
       <div class="bottom">
         <span>© ${new Date().getFullYear()} Heeya — The Attire Studio · Guwahati, Assam</span>
-        <span><span class="as">হিয়া · Woven with heart</span></span>
+        <span><span class="as">হিয়া · Woven with heart</span> · <a href="admin/">Founder login</a></span>
       </div>
     </div>
   </footer>

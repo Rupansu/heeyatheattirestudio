@@ -1,4 +1,4 @@
-/* Built from the founder's saved edits on 2026-11-16. */
+/* Built from the founder's saved edits on 2026-11-17. */
 const STUDIO = {
  "name": "Heeya — The Attire Studio",
  "whatsapp": "919864030365",

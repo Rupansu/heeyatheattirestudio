@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Founder's Console — Heeya</title>
+  <link rel="icon" href="img/brand/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Jost:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/founder.css">
+</head>
+<body>
+
+<!-- SIGN IN -->
+<main class="signin" id="signin" hidden>
+  <form class="signin-card" id="signin-form" novalidate>
+    <img src="img/brand/logo-gold.png" alt="Heeya — The Attire Studio" width="92">
+    <h1>Founder's console</h1>
+    <p class="muted">Sign in to edit your website.</p>
+    <div class="fields" data-only="password">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" autocomplete="username" required>
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" required>
+    </div>
+    <div class="fields" data-only="github" hidden>
+      <label for="gh-key">GitHub key</label>
+      <input id="gh-key" name="gh-key" type="password" autocomplete="off" spellcheck="false" placeholder="github_pat_…">
+      <p class="hint">Paste the key you were given for this website. This device remembers it until you sign out.</p>
+    </div>
+    <p class="error" id="signin-error" role="alert"></p>
+    <button class="btn primary big" type="submit">Sign in</button>
+    <button class="back" type="button" id="forgot-link" data-only="password">Forgot password?</button>
+    <a class="back" href="index.html">← Back to the website</a>
+  </form>
+
+  <!-- forgot password: ask for a reset link -->
+  <form class="signin-card" id="forgot-form" hidden novalidate>
+    <h1>Forgot password</h1>
+    <p class="muted">Enter your email and we’ll send you a link to choose a new password.</p>
+    <label for="forgot-email">Email</label>
+    <input id="forgot-email" type="email" autocomplete="username" required>
+    <p class="error" id="forgot-error" role="alert"></p>
+    <p class="notice" id="forgot-done" role="status" hidden>If that is the founder’s email, a reset link is on its way. It works for 30 minutes. Check the spam folder too.</p>
+    <button class="btn primary big" type="submit">Send reset link</button>
+    <button class="back" type="button" data-to-signin>← Back to sign in</button>
+  </form>
+
+  <!-- opened from the emailed link -->
+  <form class="signin-card" id="reset-form" hidden novalidate>
+    <h1>New password</h1>
+    <p class="muted">Choose a new password for the founder’s console.</p>
+    <label for="reset-new">New password</label>
+    <input id="reset-new" type="password" autocomplete="new-password" required>
+    <label for="reset-again">Type it again</label>
+    <input id="reset-again" type="password" autocomplete="new-password" required>
+    <p class="error" id="reset-error" role="alert"></p>
+    <button class="btn primary big" type="submit">Save new password</button>
+    <button class="back" type="button" data-to-signin>← Back to sign in</button>
+  </form>
+</main>
+
+<!-- CONSOLE -->
+<div id="console" hidden>
+  <header class="top">
+    <div class="top-in">
+      <a class="brand" href="index.html" target="_blank" rel="noopener"><img src="img/brand/mark-gold.png" alt="" width="34"><span>Heeya <small>Founder's console</small></span></a>
+      <div class="top-actions">
+        <a class="btn light" href="index.html" target="_blank" rel="noopener">View website</a>
+        <button class="btn light" type="button" id="signout">Sign out</button>
+      </div>
+    </div>
+    <nav class="tabs" aria-label="Sections">
+      <button type="button" data-tab="products" aria-selected="true">Products</button>
+      <button type="button" data-tab="text" aria-selected="false">Website text</button>
+      <button type="button" data-tab="contact" aria-selected="false">Contact details</button>
+      <button type="button" data-tab="settings" aria-selected="false">Settings</button>
+    </nav>
+  </header>
+
+  <main class="page">
+    <!-- products: list -->
+    <section id="tab-products">
+      <div id="product-list-view">
+        <div class="row-head">
+          <div><h2>Your products</h2><p class="muted" id="product-count"></p></div>
+          <button class="btn primary" type="button" id="add-product">+ Add a product</button>
+        </div>
+        <ul class="plist" id="plist"></ul>
+      </div>
+
+      <!-- products: editor -->
+      <form id="product-form" hidden novalidate>
+        <button class="back" type="button" id="cancel-top">← Back to all products</button>
+        <h2 id="form-title">Edit product</h2>
+
+        <div class="field">
+          <label>Photos</label>
+          <p class="hint">The first photo is the main one. Add up to 8.</p>
+          <div class="photos" id="photos"></div>
+          <input type="file" id="photo-input" accept="image/*" multiple hidden>
+        </div>
+        <div class="field"><label for="p-name">Name</label><input id="p-name" maxlength="120" placeholder="e.g. Royal Blue Mulberry Silk Mekhela Sador"></div>
+        <div class="grid2">
+          <div class="field"><label for="p-price">Price (₹)</label><input id="p-price" inputmode="numeric" placeholder="e.g. 18500"><p class="hint">Leave empty to show “Price on request”.</p></div>
+          <div class="field"><label for="p-tag">Small label on the photo (optional)</label><input id="p-tag" maxlength="30" placeholder="e.g. New"></div>
+        </div>
+        <div class="grid2">
+          <div class="field"><label for="p-cat">Type</label><select id="p-cat"></select>
+            <button class="add-link" type="button" data-add-choice="cat">+ Add a new type</button>
+            <button class="add-link delete" type="button" data-delete-choice="cat">Delete this type</button>
+            <div class="addrow" id="addrow-cat" hidden>
+              <input id="new-cat" maxlength="40" placeholder="e.g. Muffler" aria-label="New type name">
+              <button class="btn primary" type="button" data-save-choice="cat">Add type</button>
+              <button class="btn" type="button" data-cancel-choice="cat">Cancel</button>
+            </div></div>
+          <div class="field"><label for="p-silk">Fabric</label><select id="p-silk"></select>
+            <button class="add-link" type="button" data-add-choice="silk">+ Add a new fabric</button>
+            <button class="add-link delete" type="button" data-delete-choice="silk">Delete this fabric</button>
+            <div class="addrow" id="addrow-silk" hidden>
+              <input id="new-silk" maxlength="40" placeholder="e.g. Linen" aria-label="New fabric name">
+              <input id="new-silk-desc" maxlength="300" placeholder="A line about this fabric (optional)" aria-label="About this fabric">
+              <button class="btn primary" type="button" data-save-choice="silk">Add fabric</button>
+              <button class="btn" type="button" data-cancel-choice="silk">Cancel</button>
+            </div></div>
+        </div>
+        <div class="field"><label for="p-colour">Colours</label><input id="p-colour" maxlength="120" placeholder="e.g. Royal blue, antique gold"></div>
+        <div class="field"><label for="p-desc">Description</label><textarea id="p-desc" rows="5" maxlength="1500" placeholder="A few lines about this piece."></textarea></div>
+        <label class="check"><input type="checkbox" id="p-hidden"> Hide this product from the website for now</label>
+
+        <p class="error" id="form-error" role="alert"></p>
+        <div class="actions">
+          <button class="btn primary big" type="submit" id="save-product">Save product</button>
+          <button class="btn" type="button" id="cancel">Cancel</button>
+          <button class="btn danger" type="button" id="delete-product">Delete product</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- website text -->
+    <section id="tab-text" hidden>
+      <form id="text-form" novalidate>
+        <div class="row-head"><div><h2>Website text</h2><p class="muted">Tip: put *stars* around words to show them in gold italics.</p></div></div>
+        <div id="text-fields"></div>
+        <p class="error" id="text-error" role="alert"></p>
+        <div class="actions sticky"><button class="btn primary big" type="submit">Save text</button></div>
+      </form>
+    </section>
+
+    <!-- contact -->
+    <section id="tab-contact" hidden>
+      <form id="contact-form" novalidate>
+        <div class="row-head"><div><h2>Contact details</h2><p class="muted">Orders from the website are sent to this WhatsApp number.</p></div></div>
+        <div class="field"><label for="c-whatsapp">WhatsApp number, with country code</label><input id="c-whatsapp" inputmode="tel" placeholder="e.g. 919864030365"><p class="hint">Digits only. For India, start with 91.</p></div>
+        <div class="field"><label for="c-whatsappDisplay">WhatsApp number as shown on the website</label><input id="c-whatsappDisplay" placeholder="e.g. +91 98640 30365"></div>
+        <div class="field"><label for="c-instagram">Instagram link</label><input id="c-instagram" inputmode="url" placeholder="https://www.instagram.com/…"></div>
+        <div class="field"><label for="c-instagramHandle">Instagram name</label><input id="c-instagramHandle" placeholder="@heeyatheattirestudio"></div>
+        <div class="field"><label for="c-address">Studio address</label><input id="c-address"></div>
+        <div class="field"><label for="c-maps">Google Maps link</label><input id="c-maps" inputmode="url"></div>
+        <p class="error" id="contact-error" role="alert"></p>
+        <div class="actions"><button class="btn primary big" type="submit">Save contact details</button></div>
+      </form>
+    </section>
+    <!-- settings -->
+    <section id="tab-settings" hidden>
+      <form id="password-form" class="narrow" data-only="password" novalidate>
+        <div class="row-head"><div><h2>Change password</h2><p class="muted" id="signed-in-as"></p></div></div>
+        <input type="text" id="pw-user" autocomplete="username" hidden>
+        <div class="field"><label for="pw-current">Current password</label><input id="pw-current" type="password" autocomplete="current-password"></div>
+        <div class="field"><label for="pw-new">New password</label><input id="pw-new" type="password" autocomplete="new-password"><p class="hint">At least 7 characters. Longer is safer.</p></div>
+        <div class="field"><label for="pw-again">Type the new password again</label><input id="pw-again" type="password" autocomplete="new-password"></div>
+        <p class="error" id="password-error" role="alert"></p>
+        <div class="actions"><button class="btn primary big" type="submit">Change password</button></div>
+      </form>
+      <div class="narrow keyinfo" data-only="github" hidden>
+        <div class="row-head"><div><h2>Sign-in key</h2><p class="muted" id="key-info"></p></div></div>
+        <p>This device stays signed in with your GitHub key until you press <b>Sign out</b>.</p>
+        <p>To change the key: create a new one on GitHub, sign out here, and sign in with the new key. Then delete the old key on GitHub.</p>
+        <p class="hint">Lost a phone or laptop? Delete its key on GitHub (Settings → Developer settings → Personal access tokens). That device then can’t change the website any more.</p>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="admin/config.js"></script>
+<script src="js/admin-github.js"></script>
+<script src="js/founder.js"></script>
+</body>
+</html>
